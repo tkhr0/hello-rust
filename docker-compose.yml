@@ -1,0 +1,15 @@
+version: '3'
+services:
+    rust:
+        build: .
+        environment:
+            - USER=tkhr0
+            - CARGO_HOME=/usr/local/cargo
+        volumes:
+            - .:/code:delegated
+            - cargo:/usr/local/cargo:cached
+        command: sh -c "/bin/sh"
+        tty: true
+
+volumes:
+    cargo:
