@@ -41,7 +41,8 @@ Result型の値を使わないとコンパイラが警告する
 
 # crate クレート
 Rust のコードのパッケージのこと  
-gem 的なヤツ
+gem 的なヤツ  
+`extern crate cratename;` で読み込む
 
 # cargo.toml
 `[dependencies]` に依存ライブラリを書く  
