@@ -28,4 +28,8 @@ fn main() {
         Philosopher::new("Emma Goldman"),
         Philosopher::new("Michel Foucault"),
     ];
+
+    for p in &philosophers {
+        p.eat();
+    }
 }
