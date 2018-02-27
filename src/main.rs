@@ -23,13 +23,15 @@ fn main() {   // main がエントリーポイント
         io::stdin()                          // 標準入力のハンドル
             .read_line(&mut guess)           // メソッド呼び出し
             .expect("Failed to read line");  // io::Result.expect()
-        // 呼ばないとwarning
+                                             // 呼ばないとwarning
 
         // 変数を再定義 シャドーイング
         // 変数の型を変えるため
-        let guess: u32 = guess.trim()  // 改行とかを削除
-            .parse()                   // 文字列を数値にする
-            .expect("Please type a number!");
+        // 改行とかを削除して文字列を数値にする
+        let guess: u32 = match guess.trim().parse() {
+                Ok(num) => num,
+                Err(_) => continue,  // _ は名前じゃない
+            };
 
         println!("You guessed: {}", guess);  // {} がプレースホルダ
 
@@ -37,7 +39,10 @@ fn main() {   // main がエントリーポイント
         match guess.cmp(&secret_number) {
             Ordering::Less    => println!("Too small!"),
             Ordering::Greater => println!("Too big!"),
-            Ordering::Equal   => println!("You win!"),
+            Ordering::Equal   => {
+                println!("You win!");
+                break;
+            }
         }
     }
 }
