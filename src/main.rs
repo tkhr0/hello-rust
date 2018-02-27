@@ -1,6 +1,7 @@
 extern crate rand;  // クレートライブラリ読み込み
 
 use std::io;  // ioライブラリ読み込み
+use std::cmp::Ordering;
 use rand::Rng;  // メソッドを呼ぶためにトレイトを宣言する
 
 fn main() {   // main がエントリーポイント
@@ -15,6 +16,7 @@ fn main() {   // main がエントリーポイント
 
     // 変数束縛
     // mut でミュータブル（可変）
+    // 型は型推論で決まってる
     let mut guess = String::new();  // 空文字列を束縛する
 
     io::stdin()                          // 標準入力のハンドル
@@ -22,5 +24,18 @@ fn main() {   // main がエントリーポイント
         .expect("Failed to read line");  // io::Result.expect()
                                          // 呼ばないとwarning
 
+    // 変数を再定義 シャドーイング
+    // 変数の型を変えるため
+    let guess: u32 = guess.trim()  // 改行とかを削除
+        .parse()                   // 文字列を数値にする
+        .expect("Please type a number!");
+
     println!("You guessed: {}", guess);  // {} がプレースホルダ
+
+    // 条件分岐
+    match guess.cmp(&secret_number) {
+        Ordering::Less    => println!("Too small!"),
+        Ordering::Greater => println!("Too big!"),
+        Ordering::Equal   => println!("You win!"),
+    }
 }
