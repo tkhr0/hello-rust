@@ -14,6 +14,10 @@ impl Philosopher {
             name: name.to_string(),  // &nameの参照先のコピーを作る
         }
     }
+
+    fn eat(&self) {
+        println!("{} is done eating.", self.name);
+    }
 }
 
 fn main() {

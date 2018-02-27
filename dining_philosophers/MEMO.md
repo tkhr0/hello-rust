@@ -4,4 +4,8 @@
 
 https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/dining-philosophers.html
 
+# 関連関数とメソッド
+引数に `&self` を取るとメソッドになる  
+そうでなければ関連関数になる
 
+https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/method-syntax.html
