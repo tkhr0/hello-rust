@@ -1,9 +1,15 @@
+use std::sync::Mutex;
 use std::thread;
 use std::time::Duration;
 
 // 構造体
 struct Philosopher {
     name: String,
+}
+
+struct Table {
+    // Mutexは並行処理を制御する機構
+    forks: Vec<Mutex<()>>,  // 中身は空タプル
 }
 
 // Philosopher構造体に関する定義
