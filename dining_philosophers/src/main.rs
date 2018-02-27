@@ -36,7 +36,14 @@ fn main() {
         Philosopher::new("Michel Foucault"),
     ];
 
-    for p in &philosophers {
-        p.eat();
+    let handles: Vec<_> = philosophers.into_iter()
+        .map(|p| {  // クロージャ
+            thread::spawn(move || {  // move アノテーション
+                p.eat();
+            })  // セミコロンを置かずに式にしている
+        }).collect();
+
+    for h in handles {
+        h.join().unwrap();
     }
 }

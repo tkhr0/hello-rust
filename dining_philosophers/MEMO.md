@@ -9,3 +9,11 @@ https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/dining-
 そうでなければ関連関数になる
 
 https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/method-syntax.html
+
+# 型プレースホルダ
+`let handles: Vec<_>` の `_` のこと  
+`handles` は何らかの型のベクトルとするが、その型が何であるかはRustが解決せよ。ということ
+
+# move アノテーション
+クロージャがコピーの所有権を取るようになる  
+https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/closures.html#move-%E3%82%AF%E3%83%AD%E3%83%BC%E3%82%B8%E3%83%A3
