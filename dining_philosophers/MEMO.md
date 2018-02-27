@@ -17,3 +17,6 @@ https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/method-
 # move アノテーション
 クロージャがコピーの所有権を取るようになる  
 https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/closures.html#move-%E3%82%AF%E3%83%AD%E3%83%BC%E3%82%B8%E3%83%A3
+
+# 変数名
+`let _left;` のように `_` をプレフィックスにすると、未使用でも警告されなくなる
