@@ -10,8 +10,6 @@ fn main() {   // main がエントリーポイント
     let secret_number = rand::thread_rng()  // 現在のスレッドに乱数生成器をコピー
         .gen_range(1, 101);  // 1~100 の乱数
 
-    println!("The secret number is: {}", secret_number);
-
     loop {
         println!("Please input your guess.");
 
